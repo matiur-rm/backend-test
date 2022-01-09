@@ -25,7 +25,7 @@ class MicroController extends AbstractController
      */
     public function randomText(): Response
     {
-        $number = 656565;
+        $number = 6565654;
 
         return $this->render('micro/random.html.twig', [
             'number' => $number,
