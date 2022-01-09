@@ -1,0 +1,5 @@
+.idea/
+vendor/
+nbproject/*
+var/cache/dev/*
+var/log/*
