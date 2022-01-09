@@ -31,7 +31,7 @@ class Kernel extends BaseKernel
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
         $routes->add('random_number', '/random/{limit}')->controller([$this, 'randomNumber']);
-        $routes->add('random_text', '/random_text')->controller([$this, 'randomText']);
+        $routes->add('file_upload', '/file_upload')->controller([$this, 'fileUpload']);
     }
 
     public function randomNumber(int $limit): JsonResponse
