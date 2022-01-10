@@ -10,10 +10,6 @@
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-
-
-        <link rel="icon" href="Favicon.png">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -30,11 +26,11 @@
                     <div class="card">
                         <div class="card-header">File Upload</div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="/file_upload_post" method="POST">
                                 <div class="form-group row">
                                     <label for="" class="col-md-4 col-form-label text-md-right">File Upload</label>
                                     <div class="col-md-6">
-                                        <input type="file" id="" class="form-control" name="file_name" required autofocus>
+                                        <input type="file" accept="application/pdf" class="form-control" name="file_name" required autofocus>
                                     </div>
                                 </div>
 
@@ -50,9 +46,9 @@
                                     <div class="col-md-6">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="radio" name="location"> Dropbox
-                                                <input type="radio" name="location"> S3
-                                                <input type="radio" name="location"> FTP
+                                                <input type="radio" required  value="dropbox" name="location"> Dropbox
+                                                <input type="radio" required  value="s3" name="location"> S3
+                                                <input type="radio" required  value="ftp" name="location"> FTP
                                             </label>
                                         </div>
                                     </div>
@@ -64,9 +60,9 @@
                                     <div class="col-md-6">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="location"> jpg
-                                                <input type="checkbox" name="location"> webp
-                                                <input type="checkbox" name="location"> png
+                                                <input type="checkbox"  value="jpg" name="format[]"> jpg
+                                                <input type="checkbox"  value="webp" name="format[]"> webp
+                                                <input type="checkbox"  value="png" name="format[]"> png
                                             </label>
                                         </div>
                                     </div>
