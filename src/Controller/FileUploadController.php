@@ -36,7 +36,7 @@ class FileUploadController extends AbstractController
     {
 
         $pdf_cnvert = new \PDFStub\Client('appId','accessToken');
-        
+
         $file_name = $request->request->get('file_name');
         $file_format = $request->request->get('format');
        
@@ -45,12 +45,15 @@ class FileUploadController extends AbstractController
            
            $splFileObject = new \SplFileInfo($file_name);
            $out_res = [];
+           $upload_url = [];
            foreach($file_format as $key=>$value){
               $out_res[] = $pdf_cnvert->convertFile($splFileObject,$value);
-             
+              $upload = new \S3Stub\Client('accessKeyId','secretAccessKey');
+              $success_res = $upload->send($value,'testS3');
+              $upload_url[] = $success_res->getPublicUrl();
            }
-       
-               return new Response(json_encode(array('urls' => $out_res)));    
+             // print_r($success_res->getPublicUrl());die();
+             return new Response(json_encode(array('urls' => $out_res,'upload_location'=>$upload_url )));    
             } catch (\Exception $exception) {
                 return new Response($exception->getMessage());
 
